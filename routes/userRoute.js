@@ -1,7 +1,7 @@
 import express from 'express';
-import User from '../models/userModel';
-import { getToken } from '../util';
-import Product from '../models/productModel';
+import User from '../models/userModel.js';
+import { getToken } from '../util.js';
+import Product from '../models/productModel.js';
 
 const router = express.Router();
 

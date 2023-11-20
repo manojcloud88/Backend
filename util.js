@@ -1,4 +1,4 @@
-import config from './config.mjs';
+import config from './config.js';
 import jwt from 'jsonwebtoken';
 const getToken = (user) => {
     return jwt.sign({
