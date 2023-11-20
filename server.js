@@ -1,10 +1,16 @@
-import data from './data';
+
 import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import userRoute from './routes/userRoute';
 import express from 'express';
+
+const data = require('./data');
+
+
+
+
 
 
 dotenv.config();
