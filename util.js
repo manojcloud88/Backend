@@ -1,4 +1,4 @@
-import config from './config.js';
+import config from './config';
 import jwt from 'jsonwebtoken';
 const getToken = (user) => {
     return jwt.sign({
@@ -13,7 +13,5 @@ const getToken = (user) => {
 }
 
 
-export{
-    getToken
-}
+module.exports = getToken;
 

@@ -1,29 +1,27 @@
-// import data from './data';
-// import config from './config';
-// import mongoose from 'mongoose';
-// import bodyParser from 'body-parser';
-// import userRoute from './routes/userRoute';
-// import express from 'express';
+import data from './data';
+import config from './config';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import userRoute from './routes/userRoute';
+import express from 'express';
+import dotenv from 'dotenv';
 
-const dotenv = require('dotenv')
-const mongoose = require('mongoose')
-const data = require('./data')
-const config = require('./config')
-const bodyParser = require('body-parser')
-const userRoute = require('./routes/userRoute')
-const express = require('express')
 
 
 dotenv.config();
 
+const app = express();
+const cors = require("cors");
+app.use(bodyParser.json());
+
+app.use(cors());
+
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl).catch(error => console.log(error.reason));
 
-const app = express();
-app.use(bodyParser.json());
 
-const cors = require("cors");
-app.use(cors());
+
+
 
 app.use("/api/users", userRoute);
 app.get("/api/products/:id", (req, res) => {
