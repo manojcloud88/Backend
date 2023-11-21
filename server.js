@@ -1,28 +1,26 @@
-import data from './data';
-import dotenv from 'dotenv';
-import config from './config';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import userRoute from './routes/userRoute';
-import express from 'express';
+import express from 'express'
+import { connect } from 'mongoose'
+import userRoute from './routes/userRoute'
+import { json } from 'body-parser'
+import { MONGODB_URL } from './config'
+import { config as _config } from 'dotenv'
+import { products } from './data'
 
+_config();
 
-
-dotenv.config();
-
-const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl).catch(error => console.log(error.reason));
+const mongodbUrl = MONGODB_URL;
+connect(mongodbUrl).catch(error => console.log(error.reason));
 
 const app = express();
-app.use(bodyParser.json());
+app.use(json());
 
-const cors = require("cors");
+import cors from "cors"
 app.use(cors());
 
 app.use("/api/users", userRoute);
 app.get("/api/products/:id", (req, res) => {
   const productId = req.params.id;
-  const product = data.products.find(x => x._id === productId);
+  const product = products.find(x => x._id === productId);
 
   if (product) {
     res.send(product);
@@ -32,7 +30,7 @@ app.get("/api/products/:id", (req, res) => {
 });
 
 app.get("/api/products", (req, res) => {
-  res.send(data.products);
+  res.send(products);
 });
 
 app.listen(5000, () => {
