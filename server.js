@@ -6,7 +6,7 @@
 // import express from 'express';
 // import dotenv from 'dotenv';
 
-const dotenv = require('dotenv')
+//const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const data = require('./data')
 const config = require('./config')
@@ -15,7 +15,7 @@ const userRoute = require('./routes/userRoute')
 const express = require('express')
 
 
-dotenv.config();
+//dotenv.config();
 
 const app = express();
 const cors = require("cors");
