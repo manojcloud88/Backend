@@ -1,7 +1,12 @@
-import express from 'express';
-import User from '../models/userModel.js';
-import { getToken } from '../util.js';
-import Product from '../models/productModel.js';
+// import express from 'express';
+// import User from '../models/userModel.js';
+// import { getToken } from '../util.js';
+// import Product from '../models/productModel.js';
+
+const express = require('express')
+const User = require('../models/userModel')
+const getToken = require('../util')
+const Product = require('../models/productModel')
 
 const router = express.Router();
 

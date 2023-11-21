@@ -1,6 +1,9 @@
-import express from 'express';
-import Product from '../models/productModel';
-import { getToken } from '../util';
+// import express from 'express';
+// import Product from '../models/productModel';
+// import { getToken } from '../util';
+
+const express = require('express')
+const Product = require('../models/productModel')
 
 const router = express.Router();
 
