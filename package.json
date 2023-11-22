@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/server.js"
+    "start": "nodemon --watch Backend --exec babel-node Backend/server.js"
   },
+  "engines": {
+  "node": ">=18.18.0 <19.0.0"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
